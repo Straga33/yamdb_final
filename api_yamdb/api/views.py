@@ -11,8 +11,10 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import AccessToken
 from reviews.models import Category, Comment, Genre, Review, Title, User
+from api_yamdb.settings import DEFAULT_FROM_EMAIL
 
 from .filters import TitlesFilter
+
 from .mixins import ListCreateDestroyViewSet
 from .permissions import IsAdmin, IsAdminOrReadOnly, IsAuthorOrAdminOrModerator
 from .serializers import (CategorySerializer, CommentSerializer,
@@ -20,7 +22,7 @@ from .serializers import (CategorySerializer, CommentSerializer,
                           ReviewSerializer, TitleSerializer, TokenSerializer,
                           UserMeSerializer, UserSignupSerializer,
                           UsersSettingsSerializer)
-from api_yamdb.settings import DEFAULT_FROM_EMAIL
+
 
 
 class UserMeRetrieveUpdate(APIView):
@@ -175,9 +177,6 @@ class CommentViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthorOrAdminOrModerator,)
 
     def get_queryset(self):
-        # queryset = Comment.objects.filter(
-        #     review_id=self.kwargs.get('review_id')
-        # )
         return Comment.objects.filter(
             review_id=self.kwargs.get('review_id')
         )
