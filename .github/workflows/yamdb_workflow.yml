@@ -58,4 +58,4 @@ jobs:
         uses: docker/build-push-action@v2 
         with:
           push: true
-          tags: straga33/yamdb_final:latest
+          tags: straga33/yamdb-final:latest
