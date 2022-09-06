@@ -11,6 +11,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import AccessToken
 from reviews.models import Category, Comment, Genre, Review, Title, User
+
 from .filters import TitlesFilter
 from .mixins import ListCreateDestroyViewSet
 from .permissions import IsAdmin, IsAdminOrReadOnly, IsAuthorOrAdminOrModerator
@@ -174,10 +175,12 @@ class CommentViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthorOrAdminOrModerator,)
 
     def get_queryset(self):
-        queryset = Comment.objects.filter(
+        # queryset = Comment.objects.filter(
+        #     review_id=self.kwargs.get('review_id')
+        # )
+        return Comment.objects.filter(
             review_id=self.kwargs.get('review_id')
         )
-        return queryset
 
     def perform_create(self, serializer):
         serializer.is_valid(raise_exception=True)
