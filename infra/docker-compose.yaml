@@ -10,7 +10,6 @@ services:
       - ./.env
   web:
     image: straga33/yamdb_final:latest
-    # duprokofev/apiyamdb:latest 1
     restart: always
     volumes:
       - static_value:/app/static/
