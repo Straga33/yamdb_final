@@ -7,7 +7,7 @@ from .views import (CategoryViewSet, CommentViewSet, GenreViewSet,
 
 app_name = 'api'
 
-router = DefaultRouter() #comment
+router = DefaultRouter()
 
 router.register(
     r'titles/(?P<title_id>\d+)/reviews',
