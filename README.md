@@ -1,4 +1,4 @@
-# yamdb_final
+# Проект YaMDb для сбора отзывов пользователей на произведения.
 ![example workflow](https://github.com/Straga33/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
 
 Проект YaMDb собирает отзывы (Review) пользователей на произведения (Title). Произведения делятся на категории: "Книги", "Фильмы", "Музыка". Список категорий (Category) может быть расширен.
@@ -44,10 +44,6 @@ docker-compose exec web python manage.py collectstatic --no-input
 ```
 docker-compose exec web python manage.py createsuperuser
 ```
-
-### Разработчик:
-
-Басков Михаил (baem-festa@yandex.ru)
 
 ### Примеры эндпоинтов:
 
@@ -96,3 +92,7 @@ http://127.0.0.1:8000/api/v1/categories/{slug}/
 ```
 http://127.0.0.1:8000/redoc/
 ```
+
+### Разработчик:
+
+Басков Михаил (baem-festa@yandex.ru)
